@@ -1,0 +1,18 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/SeBackupPrivilegeTest/obj/Release/SeBackupPrivilegeTest.csprojAssemblyReference.cache
+/SeBackupPrivilegeUtils/bin/Debug
+/SeBackupPrivilegeCmdLets/obj/Debug
+/SeBackupPrivilegeCmdLets/obj/Release/SeBackupPrivilegeCmdLets.csprojAssemblyReference.cache
+/SeBackupPrivilegeCmdLets/bin/Debug/mscorlib.dll
+/SeBackupPrivilegeCmdLets/bin/Debug/SeBackupPrivilegeCmdLets.pdb
+/SeBackupPrivilegeCmdLets/bin/Debug/SeBackupPrivilegeUtils.pdb
+/SeBackupPrivilegeCmdLets/bin/Debug/System.Data.dll
+/SeBackupPrivilegeTest/bin/Debug/mscorlib.dll
+/SeBackupPrivilegeTest/bin/Debug
+/SeBackupPrivilegeTest/obj/Debug
+/.vs
+/SeBackupPrivilegeUtils/obj/Debug
+/SeBackupPrivilegeUtils/obj/Release

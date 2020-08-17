@@ -25,7 +25,7 @@ namespace bz.OneOEight.SeBackupPrivilege
 				return;
 			}
 			uint bytesCopied = 0;
-			retVal = SeBackupPrivilegeUtils.CopyFile("c:/temp/x.txt", "c:/temp/y.txt", ref bytesCopied, true);
+			retVal = SeBackupPrivilegeUtils.CopyFileSeBackup("c:/temp/x.txt", "c:/temp/y.txt", ref bytesCopied, true);
 			if(retVal) {
 				Console.WriteLine("Copied " + bytesCopied.ToString() + " bytes");
 			}

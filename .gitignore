@@ -16,3 +16,6 @@
 /.vs
 /SeBackupPrivilegeUtils/obj/Debug
 /SeBackupPrivilegeUtils/obj/Release
+/SeBackupPrivilegeCmdLets/obj/Release
+/SeBackupPrivilegeTest/bin/Release
+/SeBackupPrivilegeTest/obj/Release

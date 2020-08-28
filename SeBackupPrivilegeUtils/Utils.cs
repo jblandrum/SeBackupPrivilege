@@ -51,7 +51,57 @@ namespace bz.OneOEight.SeBackupPrivilege
 			ECreationDisposition dwCreationDisposition,
 			EFileAttributes dwFlagsAndAttributes,
 			IntPtr hTemplateFile);
-		
+
+		[DllImport("kernel32.dll", CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall, SetLastError = true)]
+		private static extern uint RegCreateKeyEx(
+			IntPtr hKey,
+			string lpSubKey,
+			UInt32 Reserved,
+			string lpClass,
+			UInt32 dwOptions,
+			UInt32 samDesired,
+			IntPtr lpSecurityAttributes,
+			IntPtr phkResult,
+			IntPtr lpdwDisposition);
+
+		[DllImport("kernel32.dll", CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall, SetLastError = true)]
+
+		private static extern uint RegDeleteKeyEx(
+			IntPtr hKey,
+			string lpSubKey,
+			UInt32 samDesired,
+			UInt32 Reserved);
+
+		[DllImport("kernel32.dll", CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall, SetLastError = true)]
+		private static extern uint RegDeleteTree(
+			IntPtr hKey,
+			string lpSubKey);
+
+		[DllImport("kernel32.dll", CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall, SetLastError = true)]
+		private static extern uint RegFlushKey(
+			IntPtr hKey);
+
+		[DllImport("kernel32.dll", CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall, SetLastError = true)]
+
+		private static extern uint RegSetKeyValue(
+			IntPtr hKey,
+			string lpSubKey,
+			string lpValueName,
+			UInt32 dwType,
+			IntPtr lpData,
+			UInt32 cbData);
+
+		//Only using RegCreateKeyEx
+		//These are the only keys utilized by that function
+
+		private enum ERegConstants : ulong
+        {
+			HKEY_CLASSES_ROOT = 0xffffffff80000000,
+			HKEY_CURRENT_CONFIG = 0xffffffff80000005,
+			HKEY_CURRENT_USER = 0xffffffff80000001,
+			HKEY_LOCAL_MACHINE = 0xffffffff80000002,
+			HKEY_USERS = 0xffffffff80000003,
+		}
 		private enum EFileAccess : uint	{
 			GenericRead = 0x80000000,
 			GenericWrite = 0x40000000,
@@ -298,7 +348,6 @@ namespace bz.OneOEight.SeBackupPrivilege
 			if(inFile.ToInt32() == -1) {
 				croak("Opening input file.");
 			}
-			
 			outFile = CreateFile(
 				outFileName,
 				EFileAccess.GenericWrite,
